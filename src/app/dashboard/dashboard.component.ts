@@ -21,7 +21,7 @@ export class DashboardComponent {
       this.uploadService.upload(file).subscribe(
         res => {
           input.value = null;
-          if (typeof(res) === typeof(String)) {
+          if (typeof (res) === 'string') {
             this.message = res;
           } else {
             this.message = res.msg;
@@ -31,3 +31,57 @@ export class DashboardComponent {
     }
   }
 }
+
+const data = {
+  'metabolite_1': [
+    {
+      'concentration': 15,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 20,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 40,
+      'area_1': 20,
+      'area_2': 40
+    }
+  ],
+  'metabolite_2': [
+    {
+      'concentration': 15,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 20,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 40,
+      'area_1': 20,
+      'area_2': 40
+    }
+  ],
+  'metabolite_3': [
+    {
+      'concentration': 15,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 20,
+      'area_1': 20,
+      'area_2': 40
+    },
+    {
+      'concentration': 40,
+      'area_1': 20,
+      'area_2': 40
+    }
+  ]
+};

@@ -13,7 +13,7 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class UploadService {
-  uploadUrl = '';
+  uploadUrl = 'https://fe-assignment.herokuapp.com/metabolite_info/';
   constructor(
     private http: HttpClient,
     private messenger: MessageService) {}
@@ -64,7 +64,7 @@ export class UploadService {
     }
 
     private showProgress(message: any) {
-      if (typeof(message) === typeof(String)) {
+      if (typeof(message) === 'string') {
         this.messenger.add(message);
       } else {
         this.messenger.add(message.msg);
