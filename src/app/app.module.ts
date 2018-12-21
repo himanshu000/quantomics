@@ -11,17 +11,22 @@ import {
   MatMenuModule,
   MatIconModule,
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSelectModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlotDataComponent } from './dashboard/plot-data/plot-data.component';
+import { ChartsModule } from 'ng2-charts';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    MessagesComponent
+    MessagesComponent,
+    PlotDataComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    ChartsModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
