@@ -123,6 +123,15 @@ export class DashboardComponent {
   onPicked(input: HTMLInputElement) {
     const file = input.files[0];
     if (file) {
+      // const  options = {
+      //   fieldSeparator: ',',
+      //   quoteStrings: '"',
+      //   decimalseparator: '.',
+      //   noDownload: false,
+      //   headers: ['Name', 'Age', 'Average', 'Approved', 'Description']
+      // };
+
+      // return new Angular5Csv(newData, fileName, options);
       this.uploadService.upload(file).subscribe(
         res => {
           input.value = null;
