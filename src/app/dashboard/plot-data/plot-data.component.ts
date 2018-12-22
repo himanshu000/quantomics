@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Metabolite } from '../../models/metabolite';
 
 interface MetaboliteData {
@@ -11,7 +11,7 @@ interface MetaboliteData {
   templateUrl: './plot-data.component.html',
   styleUrls: ['./plot-data.component.scss']
 })
-export class PlotDataComponent implements OnInit {
+export class PlotDataComponent implements OnInit, OnChanges {
   @Input() JSONData: Metabolite;
   metabolites: MetaboliteData[] = [];
   graphData: any = {};
@@ -44,6 +44,9 @@ export class PlotDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
     this.fillDropDown();
   }
 

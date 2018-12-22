@@ -14,127 +14,17 @@ import { MetaboliteService } from '../services/metabolite.service';
 export class DashboardComponent implements OnInit {
   message: string;
 
-  // metaboliteData: Metabolite = {};
-
   constructor(private uploadService: UploadService, private metaboliteService: MetaboliteService) {}
 
   card = { cols: 2, rows: 1 };
 
-  metaboliteData: Metabolite = {
-    metabolite_1: [
-      {
-        concentration: 15,
-        area_1: 20,
-        area_2: 1
-      },
-      {
-        concentration: 20,
-        area_1: 20,
-        area_2: 80
-      },
-      {
-        concentration: 50,
-        area_1: 20,
-        area_2: 10
-      },
-      {
-        concentration: 60,
-        area_1: 20,
-        area_2: 10
-      }
-    ],
-    metabolite_2: [
-      {
-        concentration: 15,
-        area_1: 20,
-        area_2: 40
-      },
-      {
-        concentration: 20,
-        area_1: 20,
-        area_2: 40
-      },
-      {
-        concentration: 40,
-        area_1: 30,
-        area_2: 10
-      }
-    ],
-    metabolite_3: [
-      {
-        concentration: 15,
-        area_1: 5,
-        area_2: 40
-      },
-      {
-        concentration: 20,
-        area_1: 0,
-        area_2: 30
-      },
-      {
-        concentration: 40,
-        area_1: 10,
-        area_2: 40
-      }
-    ],
-    metabolite_4: [
-      {
-        concentration: 15,
-        area_1: 20,
-        area_2: 1
-      },
-      {
-        concentration: 20,
-        area_1: 20,
-        area_2: 80
-      },
-      {
-        concentration: 40,
-        area_1: 20,
-        area_2: 10
-      }
-    ],
-    metabolite_5: [
-      {
-        concentration: 15,
-        area_1: 20,
-        area_2: 40
-      },
-      {
-        concentration: 20,
-        area_1: 20,
-        area_2: 40
-      },
-      {
-        concentration: 40,
-        area_1: 30,
-        area_2: 10
-      }
-    ],
-    metabolite_6: [
-      {
-        concentration: 15,
-        area_1: 5,
-        area_2: 40
-      },
-      {
-        concentration: 20,
-        area_1: 0,
-        area_2: 30
-      },
-      {
-        concentration: 40,
-        area_1: 10,
-        area_2: 40
-      }
-    ]
-  };
+  metaboliteData: Metabolite = {};
 
   ngOnInit() {
-    // this.metaboliteService.getMetabolites()
-    //   .subscribe(metaboiltes => {
-    //       this.metaboliteData = metaboiltes[0];
-    //     });
+    this.metaboliteService.getMetabolites()
+      .subscribe(metaboiltes => {
+          this.metaboliteData = metaboiltes[0];
+        });
   }
 
   onPicked(input: HTMLInputElement) {
