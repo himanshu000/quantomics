@@ -1,22 +1,15 @@
-<div id="dropDown">
+<div>
   <mat-form-field>
     <mat-select placeholder="Metabolites" (selectionChange)="metaboliteChanged($event.value)">
-      <mat-option *ngFor="let metabolite of metabolites" [value]="metabolite.value">
-        {{metabolite.viewValue}}
+      <mat-option *ngFor="let metabolite of metabolites" [value]="metabolite">
+        {{metabolite.key}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
 <div id="graphs">
-  <cdk-virtual-scroll-viewport class="example-viewport" itemSize="100">
-    <div *cdkVirtualFor="let scrollItem of scrollItems" class="example-item">
-      <div>
-        <canvas baseChart [id]="scrollItem.metabolite" [datasets]="scrollItem.yAxis"
-          [labels]="scrollItem.xAxis" [options]="scrollItem.lineChartOptions" [colors]="scrollItem.lineChartColors"
-          [legend]="scrollItem.lineChartLegend" [chartType]="scrollItem.lineChartType" (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
+        <canvas baseChart [id]="graphData.metabolite" [datasets]="graphData.yAxis"
+          [labels]="graphData.xAxis" [options]="graphData.lineChartOptions" [colors]="graphData.lineChartColors"
+          [legend]="graphData.lineChartLegend" [chartType]="graphData.lineChartType">
         </canvas>
-      </div>
-    </div>
-  </cdk-virtual-scroll-viewport>
 </div>

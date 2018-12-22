@@ -1,7 +1,7 @@
 import { Metabolite } from '../models/metabolite';
 
 export class Utility {
-  convertJSONToArray(data: Metabolite) {
+  static convertJSONToArray(data: Metabolite) {
     const parsedArray = [];
     for (const metabolite in data) {
       if (data.hasOwnProperty(metabolite)) {
@@ -9,6 +9,7 @@ export class Utility {
         value.forEach(element => {
           parsedArray.push({
             metabolite,
+            concentration: element.concentration,
             area_1: element.area_1,
             area_2: element.area_2,
             average_area: (element.area_1 + element.area_2) / 2

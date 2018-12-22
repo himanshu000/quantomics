@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UploadService } from '../services/upload.service';
 import { Metabolite } from '../models/metabolite';
+import { Utility } from '../common/utility';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
   selector: 'app-dashboard',
@@ -123,15 +125,6 @@ export class DashboardComponent {
   onPicked(input: HTMLInputElement) {
     const file = input.files[0];
     if (file) {
-      // const  options = {
-      //   fieldSeparator: ',',
-      //   quoteStrings: '"',
-      //   decimalseparator: '.',
-      //   noDownload: false,
-      //   headers: ['Name', 'Age', 'Average', 'Approved', 'Description']
-      // };
-
-      // return new Angular5Csv(newData, fileName, options);
       this.uploadService.upload(file).subscribe(
         res => {
           input.value = null;
@@ -143,5 +136,18 @@ export class DashboardComponent {
         }
       );
     }
+  }
+
+  exportToCSV() {
+    const  options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      noDownload: false,
+      headers: ['Metabolite', 'Concentration', 'Area_1', 'Area_2', 'Average Area']
+    };
+
+    const metaboliteDataArray = Utility.convertJSONToArray(this.metaboliteData);
+    return new Angular5Csv(metaboliteDataArray, 'Metabolite', options);
   }
 }

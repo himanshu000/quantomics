@@ -1,16 +1,21 @@
 <mat-toolbar color="primary">
   Dashboard
-  <div id="fileUploader">
-    <form enctype="multipart/form-data" method="post">
-      <div>
-        <input type="file" id="picked" #picked (click)="message=''" (change)="onPicked(picked)" mat-button>
+  <div id="parent-div">
+      <div id="first-child">
+        <button type="button" (click)="exportToCSV()">Export to CSV</button>
       </div>
-      <p *ngIf="message">{{message}}</p>
-    </form>
+      <div>
+        <form enctype="multipart/form-data" method="post">
+          <div>
+            <input type="file" id="picked" #picked (click)="message=''" (change)="onPicked(picked)" mat-button>
+          </div>
+          <p *ngIf="message">{{message}}</p>
+        </form>
+      </div>
   </div>
 </mat-toolbar>
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="40.5em">
+  <mat-grid-list cols="2" rowHeight="42.4em">
     <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
