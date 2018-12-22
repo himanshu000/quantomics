@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../services/upload.service';
 import { Metabolite } from '../models/metabolite';
 import { Utility } from '../common/utility';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
+import { MetaboliteService } from '../services/metabolite.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +11,13 @@ import { Angular5Csv } from 'angular5-csv/Angular5-csv';
   styleUrls: ['./dashboard.component.scss'],
   providers: [UploadService]
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   message: string;
 
-  constructor(private uploadService: UploadService) { }
+  // metaboliteData: Metabolite = {};
+
+  constructor(private uploadService: UploadService, private metaboliteService: MetaboliteService) {}
+
   card = { cols: 2, rows: 1 };
 
   metaboliteData: Metabolite = {
@@ -29,7 +33,12 @@ export class DashboardComponent {
         area_2: 80
       },
       {
-        concentration: 40,
+        concentration: 50,
+        area_1: 20,
+        area_2: 10
+      },
+      {
+        concentration: 60,
         area_1: 20,
         area_2: 10
       }
@@ -121,6 +130,12 @@ export class DashboardComponent {
     ]
   };
 
+  ngOnInit() {
+    // this.metaboliteService.getMetabolites()
+    //   .subscribe(metaboiltes => {
+    //       this.metaboliteData = metaboiltes[0];
+    //     });
+  }
 
   onPicked(input: HTMLInputElement) {
     const file = input.files[0];

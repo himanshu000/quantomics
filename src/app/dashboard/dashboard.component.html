@@ -5,7 +5,7 @@
         <button type="button" (click)="exportToCSV()">Export to CSV</button>
       </div>
       <div>
-        <form enctype="multipart/form-data" method="post">
+        <form enctype="multipart/form-data" method="post" hidden>
           <div>
             <input type="file" id="picked" #picked (click)="message=''" (change)="onPicked(picked)" mat-button>
           </div>
