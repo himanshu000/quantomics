@@ -19,16 +19,16 @@ export class PlotDataComponent implements OnInit, OnChanges {
   lineChartData: Array<any> = [];
   lineChartLabels: Array<any> = [];
   lineChartType = 'line';
-  lineChartColors: Array<any> = [
-    {
-      backgroundColor: 'rgba(255,255,255,0)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
+  lineChartColors: Array<any> = [{
+    backgroundColor: 'rgba(255,255,255,0)',
+    borderColor: 'rgba(0,0,0,1)',
+    pointBackgroundColor: [],
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointRadius: 10,
+    pointHoverRadius: 10,
+    lineTension: 0
+  }];
   lineChartOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
@@ -83,7 +83,9 @@ export class PlotDataComponent implements OnInit, OnChanges {
       const yAxisData = [];
       const xAxisData = [];
 
+      this.lineChartColors[0].pointBackgroundColor.splice(0, this.lineChartColors[0].pointBackgroundColor.length);
       metabolite.value.forEach(data => {
+        this.lineChartColors[0].pointBackgroundColor.push('#' + Math.random().toString(16).slice(2, 5));
         xAxisData.push(data.concentration);
         yAxisData.push(data.average_area);
       });
