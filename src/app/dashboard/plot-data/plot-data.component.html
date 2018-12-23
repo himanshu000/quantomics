@@ -12,3 +12,6 @@
     [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType">
   </canvas>
 </div>
+<div id="csv-button">
+  <button type="button" (click)="exportToCSV()" [disabled]="lineChartData.length === 0">Export to CSV</button>
+</div>

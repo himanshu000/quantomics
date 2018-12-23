@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Metabolite } from '../../models/metabolite';
+import { Utility } from 'src/app/common/utility';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 interface MetaboliteData {
   key: string;
@@ -97,5 +99,24 @@ export class PlotDataComponent implements OnInit, OnChanges {
       this.lineChartLabels.splice(0, this.lineChartLabels.length);
       this.lineChartLabels.push(...xAxis);
     }
+  }
+
+  exportToCSV() {
+    const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      noDownload: false,
+      headers: [
+        'Metabolite',
+        'Concentration',
+        'Area_1',
+        'Area_2',
+        'Average Area'
+      ]
+    };
+
+    const metaboliteDataArray = Utility.convertJSONToArray(this.JSONData);
+    return new Angular5Csv(metaboliteDataArray, 'Metabolite', options);
   }
 }

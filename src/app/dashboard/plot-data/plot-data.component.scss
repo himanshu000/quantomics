@@ -1,8 +1,14 @@
 #graphs {
-  height: 26em;
+  height: 25em;
   padding: 25px;
   background: white;
   margin-bottom: 2px;
   text-align: center;
   font-size: 20px;
-  }
+}
+
+#csv-button {
+  position: fixed;
+  bottom: 4%;
+  width: 95%;
+}

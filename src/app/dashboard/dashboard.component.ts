@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Metabolite } from '../models/metabolite';
-import { Utility } from '../common/utility';
-import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { MetaboliteService } from '../services/metabolite.service';
 import {
   FileUploader,
@@ -45,24 +43,5 @@ export class DashboardComponent implements OnInit {
           this.metaboliteData = metaboiltes[0];
         });
     };
-  }
-
-  exportToCSV() {
-    const options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      noDownload: false,
-      headers: [
-        'Metabolite',
-        'Concentration',
-        'Area_1',
-        'Area_2',
-        'Average Area'
-      ]
-    };
-
-    const metaboliteDataArray = Utility.convertJSONToArray(this.metaboliteData);
-    return new Angular5Csv(metaboliteDataArray, 'Metabolite', options);
   }
 }
