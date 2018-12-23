@@ -38,6 +38,16 @@ export class PlotDataComponent implements OnInit, OnChanges {
       yAxes: [{
         ticks: {
           beginAtZero: true
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Average Area'
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Concentration'
         }
       }]
     }
