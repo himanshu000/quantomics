@@ -64,7 +64,7 @@ export class PlotDataComponent implements OnInit, OnChanges {
               average_area: val.area_1 + val.area_2 / 2
             });
           });
-          this.metabolites.push({key: metabolite, value: value});
+          this.metabolites.push({ key: metabolite, value: value });
         }
       }
 

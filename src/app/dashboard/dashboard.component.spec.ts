@@ -6,7 +6,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatIconModule,
-  MatMenuModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { DashboardComponent } from './dashboard.component';
@@ -25,7 +25,7 @@ describe('DashboardComponent', () => {
         MatCardModule,
         MatGridListModule,
         MatIconModule,
-        MatMenuModule,
+        MatMenuModule
       ]
     }).compileComponents();
   }));

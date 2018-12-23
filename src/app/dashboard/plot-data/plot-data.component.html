@@ -8,8 +8,7 @@
   </mat-form-field>
 </div>
 <div id="graphs" *ngIf="lineChartData.length > 0">
-        <canvas baseChart [id]="graphData.metabolite" [datasets]="lineChartData"
-          [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
-          [legend]="lineChartLegend" [chartType]="lineChartType">
-        </canvas>
+  <canvas baseChart [id]="graphData.metabolite" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+    [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType">
+  </canvas>
 </div>

@@ -1,16 +1,15 @@
 <mat-toolbar color="primary">
   Dashboard
   <div id="parent-div">
-      <div id="first-child">
-        <button type="button" (click)="exportToCSV()">Export to CSV</button>
-      </div>
-      <div>
-        <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-        <button type="button" (click)="uploader.uploadAll()"
-          [disabled]="!uploader.getNotUploadedItems().length">
-              Upload File
-        </button>
-      </div>
+    <div id="first-child">
+      <button type="button" (click)="exportToCSV()">Export to CSV</button>
+    </div>
+    <div>
+      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+      <button type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        Upload File
+      </button>
+    </div>
   </div>
 </mat-toolbar>
 <div class="grid-container">
