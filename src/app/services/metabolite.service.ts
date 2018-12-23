@@ -18,7 +18,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MetaboliteService {
-  metaboiltesUrl = 'https://s3-us-west-2.amazonaws.com/mithoo-public-data/metabolite_info.json';  // URL to web api
+  // metaboiltesUrl = 'https://s3-us-west-2.amazonaws.com/mithoo-public-data/metabolite_info.json';  // URL to web api
   private handleError: HandleError;
 
   constructor(
@@ -27,8 +27,8 @@ export class MetaboliteService {
     this.handleError = httpErrorHandler.createHandleError('MetaboliteService');
   }
 
-  getMetabolites(): Observable<any[]> {
-    return this.http.get<any[]>(this.metaboiltesUrl)
+  getMetabolites(url: string): Observable<any[]> {
+    return this.http.get<any[]>(url)
       .pipe(
         catchError(this.handleError('getMetabolites', []))
       );

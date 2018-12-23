@@ -3,8 +3,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { MessageService } from './message.service';
-
 /** Type of the handleError function returned by HttpErrorHandler.createHandleError */
 export type HandleError =
   <T> (operation?: string, result?: T) => (error: HttpErrorResponse) => Observable<T>;
@@ -13,7 +11,7 @@ export type HandleError =
     providedIn: 'root'
   })
 export class HttpErrorHandler {
-  constructor(private messageService: MessageService) { }
+  constructor() { }
 
   /** Create curried handleError function that already knows the service name */
   createHandleError = (serviceName = '') => <T>
@@ -32,12 +30,9 @@ export class HttpErrorHandler {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      const message = (error.error instanceof ErrorEvent) ?
-        error.error.message :
-       `server returned code ${error.status} with body "${error.error}"`;
-
-      // TODO: better job of transforming error for user consumption
-      this.messageService.add(`${serviceName}: ${operation} failed: ${message}`);
+      // const message = (error.error instanceof ErrorEvent) ?
+      //   error.error.message :
+      //  `server returned code ${error.status} with body "${error.error}"`;
 
       // Let the app keep running by returning a safe result.
       return of( result );

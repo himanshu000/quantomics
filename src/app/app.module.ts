@@ -15,18 +15,18 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlotDataComponent } from './dashboard/plot-data/plot-data.component';
 import { ChartsModule } from 'ng2-charts';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    MessagesComponent,
-    PlotDataComponent
+    PlotDataComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
